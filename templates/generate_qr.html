@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+
+                        <form action="{% url 'generate_qr' %}" method="POST">
+
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ form.restaurant_name.label_tag }}
+                                {{ form.restaurant_name }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form.url.label_tag }}
+                                {{ form.url }}
+                            </div>
+
+                            <button class="btn btn-primary w-100">Generate QR Code </button>
+
+                        </form>
+
+                        <div class="mt-4">
+                                <strong>Instructions:</strong><br>
+                                <ol class="text-muted">
+                                    <li class="mb-2"> Enter the name of your restaurant in the <b>Restaurant Name</b> field.</li>
+                                    <li class="mb-2">Paste the menu link in the <b>Menu URL</b> field. For example, you can upload your menu PDF to Google Drive, make it public, and paste the shared link here.</li>
+                                    <li>Click <b>Generate QR Code</b> to create a QR code for your menu.</li>
+                                </ol>
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+                      
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

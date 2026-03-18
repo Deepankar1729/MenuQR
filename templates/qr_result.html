@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+
+                        {% if qr_url %}
+                            <div class="text-center mt-3">
+                                <h3>{{res_name}}</h3>
+                                <img src="{{qr_url}}" alt="QR Code" class="img-fluid">
+                                <a href="{{qr_url}}" download="{{file_name}}" class="btn btn-success w-100">Download QR Code</a>
+                            </div>
+                            <div class="text-center mt-4">
+                                <h6>Thank You for using!</h6>
+                            </div>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+                
+                    
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
