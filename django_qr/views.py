@@ -18,6 +18,8 @@ def generate_qr(request):
             # generate qr code
             qr = qrcode.make(url)
 
+            os.makedirs(settings.MEDIA_ROOT, exist_ok=True)
+            
             file_name = res_name.replace(" ",'_') + '_menu.png'
 
             file_path = os.path.join(settings.MEDIA_ROOT, file_name)
